@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ event.title }}</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20240704/pngtree-new-event-management-outdoor-image_15957684.jpg'); /* Update this path */
+            background-size: cover; /* Makes the background image cover the entire page */
+            background-position: center; /* Centers the background image */
+            color: #333;
+            /* Optional: Add a semi-transparent overlay for better text readability */
+            position: relative;
+        }
+
+        /* Overlay for better text readability */
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.7); /* White overlay with 70% opacity */
+            z-index: 1; /* Place overlay behind text */
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #4CAF50;
+            position: relative; /* To ensure text appears above the overlay */
+            z-index: 2; /* Place text above the overlay */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative; /* To ensure text appears above the overlay */
+            z-index: 2; /* Place text above the overlay */
+        }
+
+        /* Event Card */
+        .event-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative; /* To ensure card is above the overlay */
+            z-index: 2; /* Place card above the overlay */
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ event.title }}</h1>
+        <div class="event-card">
+            <p>{{ event.description }}</p>
+            <p><strong>Date:</strong> {{ event.date }}</p>
+            <p><strong>Location:</strong> {{ event.location }}</p>
+            <a href="{% url 'event_list' %}" class="btn">Back to Events</a>
+        </div>
+    </div>
+</body>
+</html>
